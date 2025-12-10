@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TechCrunch API Documentation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glassmorphism {
+            background: rgba(21, 33, 17, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(44, 71, 36, 0.3);
+        }
+        .code-block {
+            background-color: #0D1117; 
+            border: 1px solid #30363d;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'SF Mono', 'Consolas', 'Menlo', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #c9d1d9;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .code-block .key { color: #79c0ff; }
+        .code-block .string { color: #a5d6ff; }
+        .code-block .number { color: #79c0ff; }
+        .code-block .boolean { color: #ffab70; }
+        .code-block .null { color: #ff7b72; }
+        .code-block .punctuation { color: #c9d1d9; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#49e619",
+              "background-light": "#f6f8f6",
+              "background-dark": "#152111",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center py-3 glassmorphism">
+<div class="flex w-full max-w-7xl items-center justify-between px-8">
+<div class="flex items-center gap-4">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold">TechCrunch API</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-white/70 hover:text-white text-sm font-medium transition-colors" href="index.html">Home</a>
+<a class="text-white text-sm font-medium" href="docs.html">Docs</a>
+</nav>
+<div class="flex items-center gap-2">
+<a class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-background-dark text-sm font-bold leading-normal tracking-[-0.015em] transition-transform hover:scale-105" href="#">
+<span class="truncate">GitHub</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="w-full max-w-7xl mx-auto px-8 pt-24 pb-16">
+<div class="flex flex-row gap-12">
+<!-- Sticky Sidebar -->
+<aside class="sticky top-24 h-screen-minus-header w-64 hidden lg:block">
+<div class="flex flex-col gap-2 py-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-full bg-primary/20 text-primary" href="#introduction">
+<p class="text-sm font-medium leading-normal">Introduction</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-white/10" href="#get-latest">
+<p class="text-white/80 text-sm font-medium leading-normal">GET /latest</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-white/10" href="#get-category">
+<p class="text-white/80 text-sm font-medium leading-normal">GET /c/:category</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-white/10" href="#get-tag">
+<p class="text-white/80 text-sm font-medium leading-normal">GET /t/:tag</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-white/10" href="#get-page">
+<p class="text-white/80 text-sm font-medium leading-normal">GET /p/:page</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-white/10" href="#get-page-article">
+<p class="text-white/80 text-sm font-medium leading-normal">GET /p/:page/a/:id</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-white/10" href="#get-id">
+<p class="text-white/80 text-sm font-medium leading-normal">GET /:id</p>
+</a>
+</div>
+</aside>
+<!-- Content Area -->
+<div class="flex-1 min-w-0">
+<section class="py-8 border-b border-white/10" id="introduction">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">API Documentation</p>
+<p class="text-[#9fc893] text-base font-normal leading-normal max-w-2xl">A brief overview of the TechCrunch Unofficial API and how to use it. This API allows you to fetch articles and data from TechCrunch programmatically. All endpoints return data in JSON format.</p>
+</div>
+</section>
+<section class="py-8 border-b border-white/10" id="get-latest">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3">GET /latest</h2>
+<p class="text-white/80 text-base font-normal leading-normal pb-4">Fetches the latest articles from TechCrunch. This is the primary endpoint for getting the most recent content.</p>
+<div class="code-block" data-alt="JSON code example for API response"><span>{</span>
+<span class="key">"id"</span><span class="punctuation">: </span><span class="string">"2595304"</span><span class="punctuation">,</span>
+<span class="key">"title"</span><span class="punctuation">: </span><span class="string">"Apple is bringing RCS to the iPhone"</span><span class="punctuation">,</span>
+<span class="key">"thumbnail"</span><span class="punctuation">: </span><span class="string">"https://..."</span><span class="punctuation">,</span>
+<span class="key">"link"</span><span class="punctuation">: </span><span class="string">"https://techcrunch.com/..."</span><span class="punctuation">,</span>
+<span class="key">"description"</span><span class="punctuation">: </span><span class="string">"It’s happening. Apple..."</span><span class="punctuation">,</span>
+<span class="key">"author"</span><span class="punctuation">: </span><span class="string">"Ivan Mehta"</span><span class="punctuation">,</span>
+<span class="key">"date"</span><span class="punctuation">: </span><span class="string">"2024-11-16T15:00:00Z"</span>
+<span>}</span></div>
+</section>
+<section class="py-8 border-b border-white/10" id="get-category">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3">GET /c/:category</h2>
+<p class="text-white/80 text-base font-normal leading-normal pb-4">Fetches articles from a specific category, such as 'startups' or 'ai'. Replace `:category` with the desired category slug.</p>
+<div class="code-block" data-alt="JSON code example for API response"><span>{</span>
+<span class="key">"id"</span><span class="punctuation">: </span><span class="string">"2595112"</span><span class="punctuation">,</span>
+<span class="key">"title"</span><span class="punctuation">: </span><span class="string">"How AI is reshaping venture capital"</span><span class="punctuation">,</span>
+<span class="key">"thumbnail"</span><span class="punctuation">: </span><span class="string">"https://..."</span><span class="punctuation">,</span>
+<span class="key">"link"</span><span class="punctuation">: </span><span class="string">"https://techcrunch.com/..."</span><span class="punctuation">,</span>
+<span class="key">"description"</span><span class="punctuation">: </span><span class="string">"Venture capitalists are..."</span><span class="punctuation">,</span>
+<span class="key">"author"</span><span class="punctuation">: </span><span class="string">"Kyle Wiggers"</span><span class="punctuation">,</span>
+<span class="key">"date"</span><span class="punctuation">: </span><span class="string">"2024-11-15T18:30:00Z"</span>
+<span>}</span></div>
+</section>
+<section class="py-8 border-b border-white/10" id="get-tag">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3">GET /t/:tag</h2>
+<p class="text-white/80 text-base font-normal leading-normal pb-4">Fetches articles associated with a specific tag. Replace `:tag` with the desired tag slug.</p>
+</section>
+<section class="py-8 border-b border-white/10" id="get-page">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3">GET /p/:page</h2>
+<p class="text-white/80 text-base font-normal leading-normal pb-4">Paginates through all articles. Replace `:page` with the page number you want to retrieve.</p>
+</section>
+<section class="py-8 border-b border-white/10" id="get-page-article">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3">GET /p/:page/a/:id</h2>
+<p class="text-white/80 text-base font-normal leading-normal pb-4">Fetches a specific article by its ID from a specific page. This is useful for deep linking into paginated results.</p>
+</section>
+<section class="py-8" id="get-id">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3">GET /:id</h2>
+<p class="text-white/80 text-base font-normal leading-normal pb-4">Fetches a single, specific article by its unique ID. Replace `:id` with the article's ID.</p>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto">
+<div class="w-full max-w-7xl mx-auto px-8">
+<div class="flex items-center justify-center py-6 border-t border-white/10">
+<p class="text-sm text-white/50">© 2024 TechCrunch Unofficial API. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

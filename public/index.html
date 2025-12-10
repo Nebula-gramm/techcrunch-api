@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TechCrunch API Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#49e619",
+              "background-light": "#f6f8f6",
+              "background-dark": "#111214",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative w-full flex flex-col items-center">
+<!-- TopNavBar -->
+<header class="fixed top-0 z-50 w-full max-w-5xl mt-6 px-6">
+<div class="flex items-center justify-between whitespace-nowrap border border-white/10 bg-black/50 backdrop-blur-lg px-8 py-3 rounded-full">
+<div class="flex items-center gap-3 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold">TechCrunch API</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-white/80 hover:text-white text-sm font-medium transition-colors" href="#">Home</a>
+<a class="text-white/80 hover:text-white text-sm font-medium transition-colors" href="docs.html">Docs</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-primary text-background-dark text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
+<span class="truncate">View on GitHub</span>
+</button>
+</div>
+</header>
+<main class="w-full max-w-5xl px-6">
+<!-- HeroSection -->
+<section class="relative min-h-[600px] flex items-center justify-center text-center pt-32 pb-16 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/3 -translate-y-1/3 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl"></div>
+</div>
+<div class="relative z-10 flex flex-col gap-8 items-center max-w-3xl">
+<div class="flex flex-col gap-4">
+<h1 class="text-white text-5xl md:text-7xl font-extrabold tracking-tighter">
+                            TechCrunch Unofficial API
+                        </h1>
+<h2 class="text-white/70 text-lg md:text-xl font-normal leading-relaxed">
+                            Fast, clean &amp; real-time access to TechCrunch articles
+                        </h2>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-background-dark text-base font-bold tracking-wide hover:opacity-90 transition-opacity">
+<span class="truncate">Get Started</span>
+</button>
+</div>
+</section>
+<!-- FeatureSection -->
+<section class="flex flex-col gap-16 py-24">
+<!-- Feature 1 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="relative aspect-square md:aspect-auto md:h-full w-full rounded-xl bg-white/5 overflow-hidden">
+<div class="absolute -bottom-1/4 -right-1/4 w-3/4 h-3/4 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="w-full h-full bg-cover bg-center" data-alt="Abstract visualization of data streams" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRIwRHbynuzkTWiS5h0kxwBeEl-zBEImNvr1MRqnYec-3UAhoNSQ80L1kfQ42QegKDWiDzeS5PY6jl739Ynn8yFC19i9e-e0Tz4_BtumgXkA2n6vSLMePzt87mZe7mlrtpJWz0WSYQFMS5_7GAFBe0lt5e6PG6eCOddBkcqTOKyV_Pw48e5a6qBtWXOofBxgD-mcsHPFwe0cQH37hKf2OJI0-GNRTZ_Izavt6OAGkZoml3pIKR2yBrIm1rHxXfPYdzWXZCez4jK1DZ');"></div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-white text-3xl font-bold tracking-tight">Real-Time Data</h3>
+<p class="text-white/70 text-base font-normal leading-relaxed">
+                            Get instant access to the latest articles as soon as they are published. Our real-time API ensures you never miss an update, keeping your applications and services perfectly in sync with the latest tech news.
+                        </p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-4 md:order-2">
+<h3 class="text-white text-3xl font-bold tracking-tight">Simple &amp; Clean JSON</h3>
+<p class="text-white/70 text-base font-normal leading-relaxed">
+                           Receive well-structured and easy-to-parse JSON responses, making integration into your application seamless and straightforward. We focus on predictability and clarity, so you can focus on building.
+                        </p>
+</div>
+<div class="relative aspect-square md:aspect-auto md:h-full w-full rounded-xl bg-white/5 overflow-hidden md:order-1">
+<div class="absolute -bottom-1/4 -left-1/4 w-3/4 h-3/4 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="w-full h-full bg-cover bg-center" data-alt="Stylized snippet of JSON code on a screen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqpwz22tBe9AnLs8sgo7BQ8OqmHZW5mSGY7s3abpyH-3RgJuRSIhKUh6fAAw9hyom84BXSFfXPZoKR-7TxBZ9D5rqrYbuRoPsR2AZD_i2P8TNyatajGH0lAzX-GxvCvKGTgNFjJVU6vkvdju0WOdY8smJ3q3q0zyc1iOd2k-sVl7DfSsXAjkqIkhrawjRReYYTRk7H5Boy2jo7_SR3KLpnIcjDda-bQ8oO1g784RVUCqypw41VUMaOiWdvb4CCOQG8ffE1t-wm3_IJ');"></div>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="relative aspect-square md:aspect-auto md:h-full w-full rounded-xl bg-white/5 overflow-hidden">
+<div class="absolute -top-1/4 -right-1/4 w-3/4 h-3/4 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="w-full h-full bg-cover bg-center" data-alt="Abstract icon representing documentation" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCn7TFSoe4d31qljRJ0DF5-BI1pZ_Bc47Zb_HwX2QWgVJDA-gdJVGLQpzAzyiEtb1Vz-trf5YAXvq1O-TNuwGkhcVT1Hwb3upudyaK6VhwYbsNnHHdFnpHt9-Ld2mkdsw5Br2TGA_2PUJdfXijPADR3ktaHfEYMgIwONjacVJIBUL1MK6U5PrdLxN_r-_ERXnWTpiSiaksHp7yKzHMdBlF1SsUd439_ZUA79XSroZYPm54OS4pQ3hW1fZqK_j7zub08VpG2eqGfuhXN');"></div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-white text-3xl font-bold tracking-tight">Developer Focused</h3>
+<p class="text-white/70 text-base font-normal leading-relaxed">
+                            With comprehensive documentation and a focus on ease of integration, our API is built by developers, for developers. Get up and running in minutes with clear examples and dedicated support channels.
+                        </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full max-w-5xl px-6 py-10">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/10 pt-8">
+<p class="text-white/50 text-sm font-normal text-center md:text-left">© 2024 TechCrunch Unofficial API. All Rights Reserved.</p>
+<div class="flex items-center gap-4">
+<a class="text-white/50 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined !text-2xl">code</span>
+</a>
+<a class="text-white/50 hover:text-primary transition-colors" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
