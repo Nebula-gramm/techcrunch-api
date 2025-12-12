@@ -8,7 +8,7 @@ const PORT = 3000
 //serve the build path
 app.use(express.static(path.join(__dirname, "client", "dist")))
 
-app.get("/", (req,res)=>{
+app.get(/^\/(?!latest)(?!c\/)(?!t\/).*/, (req,res)=>{
     res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
 })
 
