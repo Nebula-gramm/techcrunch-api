@@ -4,6 +4,7 @@ const postRoute = require("./routes/postRoute")
 const app = express()
 const PORT = process.env.PORT || 3000
 
+app.use(express.json());
 
 //serve the build path
 app.use(express.static(path.join(__dirname, "client", "dist")))
@@ -11,6 +12,7 @@ app.use(express.static(path.join(__dirname, "client", "dist")))
 app.get(/^\/(?!latest)(?!c\/)(?!t\/).*/, (req,res)=>{
     res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
 })
+
 
 app.use("/latest" , postRoute("https://techcrunch.com/latest/"))
 app.use("/c/artificial-intelligence" , postRoute("https://techcrunch.com/category/artificial-intelligence/"))
