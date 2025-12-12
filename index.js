@@ -1,13 +1,15 @@
 const express = require("express")
+const path = require("path")
 const postRoute = require("./routes/postRoute")
 const app = express()
 const PORT = 3000
 
 
-
+//serve the build path
+app.use(express.static(path.join(__dirname, "client", "dist")))
 
 app.get("/", (req,res)=>{
-    res.send("This is Your Home!")
+    res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
 })
 
 app.use("/latest" , postRoute("https://techcrunch.com/latest/"))

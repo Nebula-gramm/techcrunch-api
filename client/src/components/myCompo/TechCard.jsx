@@ -31,7 +31,7 @@ const TechCard = () => {
       {/* Image Section */}
       <div className="md:w-1/2 w-full hidden md:flex h-fit">
         <img
-          src="/src/assets/undraw_remote-worker_0l91.svg"
+          src="/assets/undraw_remote-worker_0l91.svg"
           alt="Tech Illustration"
           className="w-full h-full object-cover"
         />

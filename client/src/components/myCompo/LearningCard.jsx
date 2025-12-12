@@ -31,7 +31,7 @@ const LearningCard = () => {
  {/* Image Section */}
       <div className="md:w-1/2 w-full hidden md:flex h-[450px]">
         <img
-          src="/src/assets/undraw_code-inspection_z688 (1).svg"
+          src="/assets/undraw_code-inspection_z688 (1).svg"
           alt="Tech Illustration"
           className="w-full h-full object-fill"
         />

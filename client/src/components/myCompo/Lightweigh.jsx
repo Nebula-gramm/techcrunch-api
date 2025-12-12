@@ -10,7 +10,7 @@ const LightWeight = () => {
       {/* Image Section */}
       <div className="md:w-1/2 w-full hidden md:flex h-[450px]">
         <img
-          src="/src/assets/undraw_pull-request_zlsu.svg"
+          src="assets/undraw_pull-request_zlsu.svg"
           alt="Tech Illustration"
           className="w-full h-full object-fill"
         />
