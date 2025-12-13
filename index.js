@@ -7,10 +7,10 @@ const PORT = process.env.PORT || 3000
 app.use(express.json());
 
 //serve the build path
-app.use(express.static(path.join(__dirname, "client", "dist")))
+app.use(express.static(path.join(__dirname, "public", "dist")))
 
 app.get(/^\/(?!latest)(?!c\/)(?!t\/).*/, (req,res)=>{
-    res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
+    res.sendFile(path.join(__dirname, "public", "dist","index.html"))
 })
 
 
