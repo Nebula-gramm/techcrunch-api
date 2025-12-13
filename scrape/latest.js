@@ -10,13 +10,13 @@ async function  scrapeLatest(url) {
 
         $(".wp-block-post").each((i, el)=>{
                latest.push({
-                id: i,
+                id: i + 1,
                 category: $(el).find(".loop-card__cat-group a").text().trim(),
                 title: $(el).find(".loop-card__title a").text().trim(),
                 link: $(el).find(".loop-card__title a").attr("href"),
                 thumbnail: $(el).find(".loop-card__figure img").attr("src"),
                 author: $(el).find(".loop-card__author").text().trim(),
-                time: $(el).find("time").attr("datetime") || '',
+                date: $(el).find("time").attr("datetime") || '',
                })
         })
 

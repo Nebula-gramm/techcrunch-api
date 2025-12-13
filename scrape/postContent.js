@@ -20,7 +20,7 @@ async function scrapePost(item) {
                 thumbnail: item.thumbnail,
                 content: contentData,
                 author: item.author,
-                time: item.time
+                date: item.date
 
             }
         ]
