@@ -9,7 +9,7 @@ module.exports = function (url) {
   router.get("/", async (req, res) => {
     try {
       const page = Number(req.query.page) || 1;
-      const limit = Number(req.query.limit) || 50;
+      const limit = Number(req.query.limit) || 20;
       const postId = Number(req.query.postId);
 
       const pageUrl =
