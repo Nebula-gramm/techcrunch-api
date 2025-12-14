@@ -1,59 +1,47 @@
-const express = require("express")
-const scrapeLatest = require("../scrape/latest")
-const scrapePost = require("../scrape/postContent")
+const express = require("express");
+const scrapeLatest = require("../scrape/latest");
+const scrapePost = require("../scrape/postContent");
+
+module.exports = function (url) {
+  const router = express.Router();
+
+  // /latest?page=2&limit=10&postId=4
+  router.get("/", async (req, res) => {
+    try {
+      const page = Number(req.query.page) || 1;
+      const limit = Number(req.query.limit) || 50;
+      const postId = Number(req.query.postId);
+
+      const pageUrl =
+        page === 1 ? url : `${url}/page/${page}/`;
+
+      console.log("SCRAPING:", pageUrl);
+
+      const data = await scrapeLatest(pageUrl);
+      const limitData = data.slice(0, limit);
 
 
-module.exports = function(url) {
-    const router = express.Router()
-
-    //latest?limit=10&postId
-    router.get("/",async (req,res)=>{
-        const limit = parseInt(req.query.limit) || 50
-        const postId = parseInt(req.query.postId)
-        const data =await scrapeLatest(url)
-        const limitData = data.slice(0,limit)
-        if (!postId) return  res.json({success : true, data: limitData});
-
-        const item = limitData.find(article => article.id == req.query.postId)
-        if(!item) return res.json({success: false, data: "Item not found!"});
-        const postContent = await scrapePost(item)
-        res.json({success: true, data:postContent})
-        })
-
-    //latest?page=2&limit=10&postId=4
-    router.get("/",async (req,res)=>{
-        const pageNum = parseInt(req.query.page)
-        const limit = parseInt(req.query.limit) || 50
-        const postId = parseInt(req.query.postId)
-        const data =await scrapeLatest(`${url}/page/${pageNum}`)
-        const limitData = data.slice(0,limit)
-        if(!postId) return res.json({success : true, data: limitData});
-
-        const item = limitData.find(article => article.id == req.query.postId)
-        if(!item) return res.json({success: false, data: "Item not found!"});
-        const postContent = await scrapePost(item)
-        res.json({success: true, data:postContent})
-
-        })
+      if (!postId) {
+        return res.json({ success: true, data: limitData });
+      }
 
 
-    // //post filter by ID
-    // router.get("/:id", async(req,res)=>{
-    //     const data =await scrapeLatest(url)
-    //     const item = data.find(article => article.id == req.params.id)
-    //     if(!item) return res.send("Item not found");
-    //     const postContent = await scrapePost(item)
-    //     res.json(postContent)
-    //     })
+      const item = limitData.find(a => a.id === postId);
+      if (!item) {
+        return res.json({ success: false, message: "Item not found!" });
+      }
 
-    // router.get("/p/:page/a/:id", async(req,res)=>{
-    //     const pageNum = req.params.page
-    //     const data =await scrapeLatest(`${url}/page/${pageNum}`)
-    //     const item = data.find(article => article.id == req.params.id)
-    //     if(!item) return res.send("Item not found");
-    //     const postContent = await scrapePost(item)
-    //     res.json(postContent)
-    //     })
+      const postContent = await scrapePost(item);
+      res.json({ success: true, data: postContent });
+
+    } catch (err) {
+      res.status(500).json({
+        success: false,
+        message: "Server error",
+        error: err.message
+      });
+    }
+  });
 
     return router
 }
