@@ -25,7 +25,7 @@ app.use("/c/security" , postRoute("https://techcrunch.com/category/security/"))
 app.use("/c/startups" , postRoute("https://techcrunch.com/category/startups/"))
 app.use("/c/apps" , postRoute("https://techcrunch.com/category/apps/"))
 app.use("/c/venture" , postRoute("https://techcrunch.com/category/venture"))
-app.use("/t/apple" , postRoute("https://techcrunch.com/tag/apple"))
+app.use("/c/apple" , postRoute("https://techcrunch.com/tag/apple"))
 
 
 app.listen(PORT, ()=>{
